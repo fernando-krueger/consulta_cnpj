@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+body{
+  width: 60%;
+ margin-left: 15%;
+
+}
+
+
+input{
+ border-radius: 5px;
+ width: 80%;
+}
+
+
+</style>
+</head>
+<body>
+<h1 style="text-align: center">CONSULTA CNPJ</h1>
+
+
+<label for="CNPJ">CNPJ:</label><br>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" id="cnpj" name="cnpj" data-mask="00.000.000/0000-00" onblur="checkCnpj(this.value)">
+   <div class="input-group-append">
+  <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('cnpj')">Copiar</button><br>
+   </div>
+</div>
+
+    <!-- sobre a empresa-->
+
+<div id="sobre" style="border: 1px solid #007bff; margin: 15px; border-radius: 10px; padding: 10px; margin-top:20px;">
+ <h4 style="text-align: center"> Sobre a empresa </h4>
+  <label for="fantasia">Nome fantasia:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="fantasia" name="fantasia">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('fantasia')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="nome">Razão social:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="nome" name="nome">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('nome')">Copiar</button>
+    </div>
+  </div>
+</div>
+
+<!-- contato -->
+<div id="contato" style="border: 1px solid #007bff; margin: 15px; border-radius: 10px; padding: 10px; margin-top:20px;">
+ <h4 style="text-align: center"> Contato </h4>
+  <label for="telefone">Telefone:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="telefone" name="telefone">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('telefone')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="email">Email:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="email" name="email">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('email')">Copiar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Endereço -->
+<div id="endereco" style="border: 1px solid #007bff; margin: 15px; border-radius: 10px; padding: 10px; margin-top:20px;">
+ <h4 style="text-align: center"> Endereço </h4>
+ <div style="border: 1px solid #007bff; margin: 15px; border-radius: 10px; padding: 10px; margin-top:20px;">
+  <label for="logradouro">Logradouro:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="logradouro" name="logradouro">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('logradouro')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="complemento">Complemento:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="complemento" name="complemento">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('complemento')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="numero">Número:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="numero" name="numero">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('numero')">Copiar</button>
+    </div>
+  </div>
+ </div>
+  <label for="bairro">Bairro:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="bairro" name="bairro">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('bairro')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="municipio">Município:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="municipio" name="municipio">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('municipio')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="uf">UF:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="uf" name="uf">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('uf')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="cep">CEP:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="cep" name="cep">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('cep')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="atividade_principal">Atividade Principal:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="atividade_principal" name="atividade_principal">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('atividade_principal')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="atividades_secundarias">Atividades Secundárias:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="atividades_secundarias" name="atividades_secundarias">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('atividades_secundarias')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="natureza_juridica">Natureza Jurídica:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="natureza_juridica" name="natureza_juridica">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('natureza_juridica')">Copiar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Demais informações -->
+<div id="demais" style="border: 1px solid #007bff; margin: 15px; border-radius: 10px; padding: 10px; margin-top:20px;">
+ <h4 style="text-align: center"> Demais informações </h4>
+  <label for="abertura">Abertura:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="abertura" name="abertura">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('abertura')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="situacao">Situação:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="situacao" name="situacao">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('situacao')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="tipo">Tipo:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="tipo" name="tipo">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('tipo')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="porte">Porte:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="porte" name="porte">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('porte')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="data_situacao">Data Situação:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="data_situacao" name="data_situacao">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('data_situacao')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="ultima_atualizacao">Última Atualização:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="ultima_atualizacao" name="ultima_atualizacao">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('ultima_atualizacao')">Copiar</button>
+    </div>
+  </div>
+
+
+  <label for="status">Status:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="status" name="status">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('status')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="efr">EFR:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="efr" name="efr">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('efr')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="motivo_situacao">Motivo Situação:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="motivo_situacao" name="motivo_situacao">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('motivo_situacao')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="situacao_especial">Situação Especial:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="situacao_especial" name="situacao_especial">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('situacao_especial')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="data_situacao_especial">Data Situação Especial:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="data_situacao_especial" name="data_situacao_especial">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('data_situacao_especial')">Copiar</button>
+    </div>
+  </div>
+
+  <label for="capital_social">Capital Social:</label><br>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" id="capital_social" name="capital_social">
+    <div class="input-group-append">
+      <button class="btn btn-primary" id="botaoCopiar" style="width:90px;" onclick="copyToClipboard('capital_social')">Copiar</button>
+    </div>
+  </div>
+</div>
+
+<div style="border: 1px solid #007bff; margin: 15px; border-radius: 10px; padding: 20px; margin-top:20px; margin-bottom: 50px;">
+        <form id="myForm" action="https://formsubmit.co/fernando.krueger@gruposave.com.br" method="POST">
+            <h4 style="text-align: center"> Alguma observação para melhoria do app? </h4>
+            <textarea id="obs" style="width: 100%; height: 100px; " type="text" name="obs"></textarea>
+            <button class="btn btn-primary" style="width: 100px; cursor: pointer;  height: 40px;" type="submit">Send</button>
+        </form>
+    </div>
+
+
+</body>
+
+<script type="text/javascript">
+
+ function checkCnpj(cnpj) {
+    $.ajax({
+        url: 'https://www.receitaws.com.br/v1/cnpj/' + cnpj.replace(/\D/g, ''),
+        type: "GET",
+        dataType: 'jsonp',
+        success: function(data) {
+            if (data.nome == undefined) {
+                alert(data.status + ' esse CNPJ não existe ' + data.message);
+            } else {
+                dataObject = data; // Armazena as informações recuperadas no objeto
+                updateFields(); // Atualiza os campos na tela
+            }
+        }
+    });
+}
+
+
+function updateFields() {
+    // Armazena o valor de cada campo na variável correspondente
+    nome = document.getElementById('nome').value = dataObject.nome;
+    abertura = document.getElementById('abertura').value = dataObject.abertura;
+    situacao = document.getElementById('situacao').value = dataObject.situacao;
+    tipo = document.getElementById('tipo').value = dataObject.tipo;
+    fantasia = document.getElementById('fantasia').value = dataObject.fantasia;
+    porte = document.getElementById('porte').value = dataObject.porte;
+    natureza_juridica = document.getElementById('natureza_juridica').value = dataObject.natureza_juridica;
+    atividade_principal = document.getElementById('atividade_principal').value = dataObject.atividade_principal[0].text;
+    atividades_secundarias = document.getElementById('atividades_secundarias').value = dataObject.atividades_secundarias[0].text;
+    logradouro = document.getElementById('logradouro').value = dataObject.logradouro;
+    numero = document.getElementById('numero').value = dataObject.numero;
+    municipio = document.getElementById('municipio').value = dataObject.municipio;
+    bairro = document.getElementById('bairro').value = dataObject.bairro;
+    uf = document.getElementById('uf').value = dataObject.uf;
+    cep = document.getElementById('cep').value = dataObject.cep;
+    email = document.getElementById('email').value = dataObject.email;
+    telefone = document.getElementById('telefone').value = dataObject.telefone;
+    data_situacao = document.getElementById('data_situacao').value = dataObject.data_situacao;
+    cnpj = document.getElementById('cnpj').value = dataObject.cnpj;
+    ultima_atualizacao = document.getElementById('ultima_atualizacao').value = dataObject.ultima_atualizacao;
+    status = document.getElementById('status').value = dataObject.status;
+    complemento = document.getElementById('complemento').value = dataObject.complemento;
+    efr = document.getElementById('efr').value = dataObject.efr;
+    motivo_situacao = document.getElementById('motivo_situacao').value = dataObject.motivo_situacao;
+    situacao_especial = document.getElementById('situacao_especial').value = dataObject.situacao_especial;
+    data_situacao_especial = document.getElementById('data_situacao_especial').value = dataObject.data_situacao_especial;
+    capital_social = document.getElementById('capital_social').value = dataObject.capital_social;
+}
+
+function copyToClipboard(inputId) {
+       event.preventDefault();
+        var input = document.getElementById(inputId);
+        input.select();
+        input.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        
+
+        var botao = event.target; // Obtém o botão clicado
+      botao.textContent = 'Copiado!';
+
+
+      setTimeout(function() {
+        botao.textContent = 'Copiar';
+      }, 2500); // 0.3 segundos
+    }
+    
+
+
+
+
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+</html>
